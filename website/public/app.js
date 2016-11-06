@@ -11,7 +11,6 @@ app.controller('pageController', ['$scope', '$interval', '$http', function ($sco
             var favs = data.data.favors;
 
             for (var name in favs) {
-
                 if (favs.hasOwnProperty(name)) {
                     var favor = favs[name];
 
