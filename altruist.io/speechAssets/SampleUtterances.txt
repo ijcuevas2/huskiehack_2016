@@ -17,14 +17,21 @@ ListFavorsIntent tell me all favors
 ListFavorsIntent anybody need help
 ListFavorsIntent need favors
 ListFavorsIntent list all help needed
-ListFavorsIntent list needs
+ListFavorsIntent list all
+ListFavorsIntent list favors
+ListFavorsIntent all favors
 
 AskFavorIntent i need {Favor} {User}
 AskFavorIntent i have a {Favor} {User}
 AskFavorIntent can i {Favor} {User}
 AskFavorIntent can someone {Favor} {User}
+AskFavorIntent can someone have {Favor} {User}
 AskFavorIntent could someone {Favor} {User}
+AskFavorIntent could someone help me with {Favor} {User}
 AskFavorIntent i need help with {Favor} {User}
+AskFavorIntent i need help with {Favor} I'm {User}
+AskFavorIntent i need help with {Favor} {User}
+AskFavorIntent i need help with {Favor} I am {User}
 AskFavorIntent i need help with my {Favor} my name is {User}
 AskFavorIntent i need someone to help me {Favor} i'm {User}
 AskFavorIntent i'm {Favor} my name is {User}

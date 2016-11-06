@@ -75,6 +75,7 @@ var storage = (function () {
                 }
             });
         },
+
         newState: function (session) {
             return new State(session);
         }

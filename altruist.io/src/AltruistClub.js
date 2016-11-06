@@ -11,8 +11,6 @@ var AltruistClub = function () {
     skillContext.needMoreHelp = true;
 };
 
-
-// Extend AlexaSkill
 AltruistClub.prototype = Object.create(AlexaSkill.prototype);
 AltruistClub.prototype.constructor = AltruistClub;
 

@@ -22,6 +22,11 @@ var textHelper = (function () {
             }
 
             return newName;
+        },
+
+        getFavor: function(recognizedFavor) {
+            // might need to configure this later
+            return recognizedFavor;
         }
     };
 })();

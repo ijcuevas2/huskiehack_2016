@@ -11,17 +11,7 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
             return;
         }
         storage.loadState(session, function (currentState) {
-            var speechOutput;
-            if (currentState.data.favors[newUserName] !== undefined) {
-                speechOutput = newUserName + ' already asked a favor.';
-                if (skillContext.needMoreHelp) {
-                    response.ask(speechOutput + ' What else?', 'What else?');
-                } else {
-                    response.tell(speechOutput);
-                }
-                return;
-            }
-            speechOutput = newUserName + ' favor has been posted. ';
+            var speechOutput = newUserName + ' favor has been posted. ';
             currentState.data.favors[newUserName] = newFavor;
             currentState.save(function () {
                 response.tell(speechOutput);
@@ -31,23 +21,34 @@ var registerIntentHandlers = function (intentHandlers, skillContext) {
 
     intentHandlers.ListFavorsIntent = function (intent, session, response) {
         storage.loadState(session, function (currentState) {
-            var speechOutput = '',
-                favorBoard = '';
+            var speechOutput = '';
+            var favorBoard = '';
+
             if (Object.keys(currentState.data.favors).length === 0) {
                 response.tell('There are nobody asking for a favor at this moment.');
                 return;
             }
-            currentState.data.favors.forEach(function (item, idx) {
-                if (idx === 0) {
-                    speechOutput += item.user + ' needs help with ' + item.favor;
-                } else if (idx === Object.keys(currentState.data.favors).length - 1) {
-                    speechOutput += 'And ' + item.user + ' needs help with ' + item.favor;
-                } else {
-                    speechOutput += item.user + ' needs help with' + item.favor;
+
+            // TODO here
+            var idx = 0;
+            var favs = currentState.data.favors;
+            for (var name in favs) {
+                if (favs.hasOwnProperty(name)) {
+                    var favor = favs[name];
+
+                    if (idx === 0) {
+                        speechOutput += name + ' needs help with ' + favor;
+                    } else if (idx === Object.keys(currentState.data.favors).length - 1) {
+                        speechOutput += 'And ' + name + ' needs help with ' + favor;
+                    } else {
+                        speechOutput += name + ' needs help with' + favor;
+                    }
+                    speechOutput += '. ';
+                    favorBoard += name + ' : ' + favor + '\n';
+
+                    idx++;
                 }
-                speechOutput += '. ';
-                favorBoard += item.user + ' : ' + item.favor + '\n';
-            });
+            }
             response.tellWithCard(speechOutput, "List of Favors", favorBoard);
         });
     };

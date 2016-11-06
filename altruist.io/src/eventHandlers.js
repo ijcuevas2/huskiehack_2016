@@ -11,14 +11,14 @@ var registerEventHandlers = function (eventHandlers, skillContext) {
         storage.loadState(session, function (currentState) {
             var speechOutput = '',
                 reprompt;
-            if (currentState.data.users.length === 0) {
+            if (Object.keys(currentState.data.favors).length === 0) {
                 speechOutput += 'Altruist Club, currently the Favor Board is empty. Please ask a favor by saying what you need followed by your name at the end';
                 reprompt = "Do you need to ask any favor?";
             }
             else {
                 speechOutput += 'Altruist Club, '
-                    + 'currently there are ' + currentState.data.favors.length;
-                if (currentState.data.users.length > 1) {
+                    + 'currently there are ' + Object.keys(currentState.data.favors).length;
+                if (Object.keys(currentState.data.favors).length > 1) {
                     speechOutput += ' people';
                 }
                 else {

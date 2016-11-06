@@ -1,7 +1,7 @@
 {
   "intents": [
     {
-      "intent": "AskFavor",
+      "intent": "AskFavorIntent",
       "slots": [
         {
           "name": "Favor",
@@ -9,15 +9,15 @@
         },
         {
           "name": "User",
-          "type": "LIST_OF_USER_NAMES"
+          "type": "LIST_OF_USER_NAME"
         }
       ]
     },
     {
-      "intent": "ListFavors"
+      "intent": "ListFavorsIntent"
     },
     {
-      "intent": "ClearFavors"
+      "intent": "ClearFavorsIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"
