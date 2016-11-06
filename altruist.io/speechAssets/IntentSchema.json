@@ -1,35 +1,23 @@
 {
   "intents": [
     {
-      "intent": "AddPlayerIntent",
+      "intent": "AskFavor",
       "slots": [
         {
-          "name": "PlayerName",
-          "type": "LIST_OF_PLAYER_NAMES"
-        }
-      ]
-    },
-    {
-      "intent": "AddScoreIntent",
-      "slots": [
-        {
-          "name": "PlayerName",
-          "type": "LIST_OF_PLAYER_NAMES"
+          "name": "Favor",
+          "type": "LIST_OF_FAVORS"
         },
         {
-          "name": "ScoreNumber",
-          "type": "AMAZON.NUMBER"
+          "name": "User",
+          "type": "LIST_OF_USER_NAMES"
         }
       ]
     },
     {
-      "intent": "ResetPlayersIntent"
+      "intent": "ListFavors"
     },
     {
-      "intent": "NewGameIntent"
-    },
-    {
-      "intent": "TellScoresIntent"
+      "intent": "ClearFavors"
     },
     {
       "intent": "AMAZON.HelpIntent"
