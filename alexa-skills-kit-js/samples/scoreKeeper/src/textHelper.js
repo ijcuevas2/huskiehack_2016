@@ -25,6 +25,7 @@ var textHelper = (function () {
         + ' and exit.',
         nextHelp: 'You can give a player points, add a player, get the current score, or say help. What would you like?',
 
+        console.log("split:", split);
         getPlayerName: function (recognizedPlayerName) {
             if (!recognizedPlayerName) {
                 return undefined;
